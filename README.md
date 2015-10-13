@@ -1,7 +1,68 @@
 #  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-> link operation for node weixin
+微信推广API
 
+微信推广API是([node-weixin-api](https://github.com/node-weixin/node-weixin-api) 或者 [node-weixin-express](https://github.com/node-weixin/node-weixin-express))的一个子项目。
+它提供:
+
+1. 推广API共提供两类4个方法
+
+  A.
+  
+  qrcode.temporary.create ： 创建临时二维码
+  
+  qrcode.permanent.create ： 创建永久二维码
+  
+  qrcode.permanent.stringCreate ： 创建永久字符串二维码
+  
+  B.
+  
+  url.shorten ： 创建url短链接
+
+     
+
+交流QQ群: 39287176
+
+注:
+
+ [node-weixin-express](https://github.com/node-weixin/node-weixin-express)是基于node-weixin-*的服务器端参考实现。
+
+ [node-weixin-api](https://github.com/node-weixin/node-weixin-api)是基于node-weixin-*的API接口SDK。
+
+ 它们都是由下列子项目组合而成:
+
+ 1. [node-weixin-config](https://github.com/node-weixin/node-weixin-config)
+    用于微信配置信息的校验
+
+ 2. [node-weixin-auth](https://github.com/node-weixin/node-weixin-auth)
+    用于与微信服务器握手检验
+
+ 3. [node-weixin-util](https://github.com/node-weixin/node-weixin-util)
+    一些常用的微信请求，加密，解密，检验的功能与处理
+
+ 4. [node-weixin-request](https://github.com/node-weixin/node-weixin-request)
+    微信的各类服务的HTTP请求的抽象集合
+
+ 5. [node-weixin-oauth](https://github.com/node-weixin/node-weixin-oauth)
+    微信OAuth相关的操作
+
+ 6. [node-weixin-pay](https://github.com/node-weixin/node-weixin-pay)
+    微信支付的服务器接口
+
+ 7. [node-weixin-jssdk](https://github.com/node-weixin/node-weixin-jssdk)
+    微信JSSDK相关的服务器接口
+
+ 8. [node-weixin-menu](https://github.com/node-weixin/node-weixin-menu)
+    微信菜单相关的操作与命令
+
+ 9. [node-weixin-media](https://github.com/node-weixin/node-weixin-media)
+    微信多媒体相关的操作
+    
+ 10. [node-weixin-user](https://github.com/node-weixin/node-weixin-user)
+    微信用户相关的操作与命令
+
+ 11. [node-weixin-link](https://github.com/node-weixin/node-weixin-menu)
+    微信推广相关的操作
 
 ## Install
 
@@ -13,14 +74,53 @@ $ npm install --save node-weixin-link
 ## Usage
 
 ```js
-var nodeWeixinQrcode = require('node-weixin-link');
+var link = require('node-weixin-link');
 
-nodeWeixinQrcode('Rainbow');
+var app = {
+  id: process.env.APP_ID,
+  secret: process.env.APP_SECRET,
+  token: process.env.APP_TOKEN
+};
+var auth = require("node-weixin-auth");
+var config = require("node-weixin-config");
+config.app.init(app);
+
 ```
 
-```sh
-$ npm install --global node-weixin-link
-$ node-weixin-link --help
+1. 创建临时二维码
+
+```js
+link.qrcode.temporary.create(app, auth, 10, function (error, json) {
+  //json.url
+  //json.expire_seconds
+  //json.ticket
+});
+```
+2. 创建永久二维码
+
+```js
+link.qrcode.permanent.create(app, auth, 10, function (error, json) {
+  //json.url
+  //json.ticket
+});
+```
+
+3. 创建永久字符串二维码
+
+```js
+link.qrcode.permanent.createString(app, auth, 'heleoodo', function (error, json) {
+  //json.url
+  //json.ticket
+});
+```
+
+4. 创建url短链接
+
+```js
+var url = 'http://mp.weixin.qq.com/wiki/3/17e6919a39c1c53555185907acf70093.html';
+link.url.shorten(app, auth, url, function (error, json) {
+  //json.short_url
+});  
 ```
 
 
