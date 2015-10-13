@@ -1,6 +1,6 @@
 {
   "name": "node-weixin-link",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "link operation for node weixin",
   "author": {
     "name": "calidion",
@@ -38,8 +38,5 @@
   },
   "scripts": {
     "test": "grunt"
-  },
-  "bin": {
-    "node-weixin-link": "cli.js"
   }
 }
