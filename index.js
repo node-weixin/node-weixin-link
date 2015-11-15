@@ -18,7 +18,7 @@ module.exports = {
             }
           };
           var url = baseUrl + 'create' + '?' + util.toParam({
-              access_token: auth.accessToken
+              access_token: app.auth.accessToken
             });
           request.json(url, data, cb);
         });
@@ -36,7 +36,7 @@ module.exports = {
             }
           };
           var url = baseUrl + 'create' + '?' + util.toParam({
-              access_token: auth.accessToken
+              access_token: app.auth.accessToken
             });
           request.json(url, data, cb);
         });
@@ -52,7 +52,7 @@ module.exports = {
             }
           };
           var url = baseUrl + 'create' + '?' + util.toParam({
-              access_token: auth.accessToken
+              access_token: app.auth.accessToken
             });
           request.json(url, data, cb);
         });
@@ -67,7 +67,7 @@ module.exports = {
           long_url: longUrl
         };
         var url = 'https://api.weixin.qq.com/cgi-bin/shorturl?' + util.toParam({
-            access_token: auth.accessToken
+            access_token: app.auth.accessToken
           });
         request.json(url, data, cb);
       });
