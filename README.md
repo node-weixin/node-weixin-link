@@ -1,4 +1,4 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coveralls Status][coveralls-image]][coveralls-url]
 
 微信推广API
 
@@ -61,7 +61,7 @@
  10. [node-weixin-user](https://github.com/node-weixin/node-weixin-user)
     微信用户相关的操作与命令
 
- 11. [node-weixin-link](https://github.com/node-weixin/node-weixin-menu)
+ 11. [node-weixin-link](https://github.com/node-weixin/node-weixin-link)
     微信推广相关的操作
 
 ## Install
@@ -135,3 +135,5 @@ MIT © [calidion](blog.3gcnbeta.com)
 [travis-url]: https://travis-ci.org/node-weixin/node-weixin-link
 [daviddm-image]: https://david-dm.org/node-weixin/node-weixin-link.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/node-weixin/node-weixin-link
+[coveralls-image]: https://coveralls.io/repos/node-weixin/node-weixin-link/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/node-weixin/node-weixin-link?branch=master
