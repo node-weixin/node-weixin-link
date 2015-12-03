@@ -1,6 +1,6 @@
 {
   "name": "node-weixin-link",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "link operation for node weixin",
   "author": {
     "name": "calidion",
@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "meow": "^3.1.0",
-    "node-weixin-request": "^0.2.0",
+    "node-weixin-request": "^0.3.0",
     "node-weixin-util": "^0.2.0"
   },
   "devDependencies": {
