@@ -6,78 +6,65 @@ var settings = require('node-weixin-settings');
 
 var baseUrl = 'https://api.weixin.qq.com/cgi-bin/qrcode/';
 
+function send(url, app, data, cb) {
+  auth.determine(app, function () {
+    settings.get(app.id, 'auth', function(authData) {
+      url = url + util.toParam({
+          access_token: authData.accessToken
+        });
+      request.json(url, data, cb);
+    });
+  });
+}
+
 module.exports = {
   qrcode: {
     temporary: {
       create: function (app, id, cb) {
-        auth.determine(app, function () {
-          var authData = settings.get(app.id, 'auth');
-          var data = {
-            expire_seconds: 604800,
-            action_name: "QR_SCENE",
-            action_info: {
-              scene: {
-                scene_id: id
-              }
+        var data = {
+          expire_seconds: 604800,
+          action_name: "QR_SCENE",
+          action_info: {
+            scene: {
+              scene_id: id
             }
-          };
-          var url = baseUrl + 'create' + '?' + util.toParam({
-              access_token: authData.accessToken
-            });
-          request.json(url, data, cb);
-        });
+          }
+        };
+        send(baseUrl + 'create' + '?', app, data, cb);
       }
     },
     permanent: {
       create: function (app, id, cb) {
-        auth.determine(app, function () {
-          var authData = settings.get(app.id, 'auth');
-          var data = {
-            action_name: "QR_LIMIT_SCENE",
-              action_info: {
-              scene: {
-                scene_id: id
-              }
+        var data = {
+          action_name: "QR_LIMIT_SCENE",
+          action_info: {
+            scene: {
+              scene_id: id
             }
-          };
-          var url = baseUrl + 'create' + '?' + util.toParam({
-              access_token: authData.accessToken
-            });
-          request.json(url, data, cb);
-        });
+          }
+        };
+        send(baseUrl + 'create' + '?', app, data, cb);
       },
       createString: function (app, string, cb) {
-        auth.determine(app, function () {
-          var authData = settings.get(app.id, 'auth');
-          var data = {
-            action_name: "QR_LIMIT_STR_SCENE",
-            action_info: {
-              scene: {
-                scene_str: string
-              }
+        var data = {
+          action_name: "QR_LIMIT_STR_SCENE",
+          action_info: {
+            scene: {
+              scene_str: string
             }
-          };
-          var url = baseUrl + 'create' + '?' + util.toParam({
-              access_token: authData.accessToken
-            });
-          request.json(url, data, cb);
-        });
+          }
+        };
+        send(baseUrl + 'create' + '?', app, data, cb);
       }
     }
   },
   url: {
     shorten: function (app, longUrl, cb) {
-      auth.determine(app, function () {
-        var authData = settings.get(app.id, 'auth');
-        var data = {
-          action: 'long2short',
-          long_url: longUrl
-        };
-        var url = 'https://api.weixin.qq.com/cgi-bin/shorturl?' + util.toParam({
-            access_token: authData.accessToken
-          });
-        request.json(url, data, cb);
-      });
+      var data = {
+        action: 'long2short',
+        long_url: longUrl
+      };
+      send('https://api.weixin.qq.com/cgi-bin/shorturl?', app, data, cb);
     }
   }
 };
