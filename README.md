@@ -1,4 +1,5 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coveralls Status][coveralls-image]][coveralls-url]
+# node-weixin-link [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+
 
 微信推广API
 
@@ -8,18 +9,18 @@
 1. 推广API共提供两类4个方法
 
   A.
-  
+
   qrcode.temporary.create ： 创建临时二维码
-  
+
   qrcode.permanent.create ： 创建永久二维码
-  
+
   qrcode.permanent.stringCreate ： 创建永久字符串二维码
-  
+
   B.
-  
+
   url.shorten ： 创建url短链接
 
-     
+
 
 交流QQ群: 39287176
 
@@ -57,7 +58,7 @@
 
  9. [node-weixin-media](https://github.com/node-weixin/node-weixin-media)
     微信多媒体相关的操作
-    
+
  10. [node-weixin-user](https://github.com/node-weixin/node-weixin-user)
     微信用户相关的操作与命令
 
@@ -126,7 +127,7 @@ link.url.shorten(app, auth, url, function (error, json) {
 
 ## License
 
-MIT © [calidion](blog.3gcnbeta.com)
+Apache-2.0 © [calidion](calidion.github.io)
 
 
 [npm-image]: https://badge.fury.io/js/node-weixin-link.svg
@@ -135,5 +136,5 @@ MIT © [calidion](blog.3gcnbeta.com)
 [travis-url]: https://travis-ci.org/node-weixin/node-weixin-link
 [daviddm-image]: https://david-dm.org/node-weixin/node-weixin-link.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/node-weixin/node-weixin-link
-[coveralls-image]: https://coveralls.io/repos/node-weixin/node-weixin-link/badge.svg?branch=master&service=github
-[coveralls-url]: https://coveralls.io/github/node-weixin/node-weixin-link?branch=master
+[coveralls-image]: https://coveralls.io/repos/node-weixin/node-weixin-link/badge.svg
+[coveralls-url]: https://coveralls.io/r/node-weixin/node-weixin-link

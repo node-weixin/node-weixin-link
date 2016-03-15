@@ -10,7 +10,7 @@ describe('node-weixin-link node module', function () {
     token: process.env.APP_TOKEN
   };
 
-  var config = require("node-weixin-config");
+  var config = require('node-weixin-config');
   config.app.init(app);
 
   it('should be able to create a temporary qrcode', function (done) {
@@ -23,7 +23,6 @@ describe('node-weixin-link node module', function () {
   });
 
   it('should be able to create a permanent qrcode', function (done) {
-
     link.qrcode.permanent.create(app, 10, function (error, json) {
       assert.equal(true, validator.isURL(json.url));
       assert.equal(true, typeof json.ticket === 'string');
