@@ -2,6 +2,7 @@
 var assert = require('assert');
 var validator = require('validator');
 var link = require('../');
+var settings = require('node-weixin-settings');
 
 describe('node-weixin-link node module', function () {
   var app = {
@@ -14,7 +15,7 @@ describe('node-weixin-link node module', function () {
   config.app.init(app);
 
   it('should be able to create a temporary qrcode', function (done) {
-    link.qrcode.temporary.create(app, 10, function (error, json) {
+    link.qrcode.temporary.create(settings, app, 10, function (error, json) {
       assert.equal(true, validator.isURL(json.url));
       assert.equal(true, json.expire_seconds <= 7 * 3600 * 24);
       assert.equal(true, typeof json.ticket === 'string');
@@ -23,7 +24,7 @@ describe('node-weixin-link node module', function () {
   });
 
   it('should be able to create a permanent qrcode', function (done) {
-    link.qrcode.permanent.create(app, 10, function (error, json) {
+    link.qrcode.permanent.create(settings, app, 10, function (error, json) {
       assert.equal(true, validator.isURL(json.url));
       assert.equal(true, typeof json.ticket === 'string');
       done();
@@ -31,7 +32,7 @@ describe('node-weixin-link node module', function () {
   });
 
   it('should be able to create a permanent string qrcode', function (done) {
-    link.qrcode.permanent.createString(app, 'heleoodo', function (error, json) {
+    link.qrcode.permanent.createString(settings, app, 'heleoodo', function (error, json) {
       assert.equal(true, validator.isURL(json.url));
       assert.equal(true, typeof json.ticket === 'string');
       done();
@@ -40,7 +41,7 @@ describe('node-weixin-link node module', function () {
 
   it('should be able to shorten a url', function (done) {
     var url = 'http://mp.weixin.qq.com/wiki/3/17e6919a39c1c53555185907acf70093.html';
-    link.url.shorten(app, url, function (error, json) {
+    link.url.shorten(settings, app, url, function (error, json) {
       assert.equal(true, validator.isURL(json.short_url));
       assert.equal(true, json.errcode === 0);
       assert.equal(true, json.errmsg === 'ok');

@@ -91,7 +91,7 @@ config.app.init(app);
 1. 创建临时二维码
 
 ```js
-link.qrcode.temporary.create(app, auth, 10, function (error, json) {
+link.qrcode.temporary.create(settings, app, auth, 10, function (error, json) {
   //json.url
   //json.expire_seconds
   //json.ticket
@@ -100,7 +100,7 @@ link.qrcode.temporary.create(app, auth, 10, function (error, json) {
 2. 创建永久二维码
 
 ```js
-link.qrcode.permanent.create(app, auth, 10, function (error, json) {
+link.qrcode.permanent.create(settings, app, auth, 10, function (error, json) {
   //json.url
   //json.ticket
 });
@@ -109,7 +109,7 @@ link.qrcode.permanent.create(app, auth, 10, function (error, json) {
 3. 创建永久字符串二维码
 
 ```js
-link.qrcode.permanent.createString(app, auth, 'heleoodo', function (error, json) {
+link.qrcode.permanent.createString(settings, app, auth, 'heleoodo', function (error, json) {
   //json.url
   //json.ticket
 });
@@ -119,7 +119,7 @@ link.qrcode.permanent.createString(app, auth, 'heleoodo', function (error, json)
 
 ```js
 var url = 'http://mp.weixin.qq.com/wiki/3/17e6919a39c1c53555185907acf70093.html';
-link.url.shorten(app, auth, url, function (error, json) {
+link.url.shorten(settings, app, auth, url, function (error, json) {
   //json.short_url
 });  
 ```

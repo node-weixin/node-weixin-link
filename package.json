@@ -1,6 +1,6 @@
 {
   "name": "node-weixin-link",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "",
   "homepage": "",
   "author": {
@@ -26,6 +26,7 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "node-weixin-config": "^0.2.0",
+    "node-weixin-settings": "^0.2.0",
     "validator": "^5.1.0"
   },
   "eslintConfig": {
@@ -41,9 +42,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "node-weixin-auth": "^0.5.0",
+    "node-weixin-auth": "^0.6.0",
     "node-weixin-request": "^0.4.0",
-    "node-weixin-settings": "^0.1.0",
     "node-weixin-util": "^0.3.1"
   }
 }
